@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+
+// DADOS DOS PRODUTOS (Copiado do seu arquivo anterior)
 const dadosProdutos = [
     {
         "nome": "Camisa São Paulo I 25/26",
@@ -11,23 +13,14 @@ const dadosProdutos = [
             "/produtos/camisa_spfc_modeloA_04.webp",
             "/produtos/camisa_spfc_modeloA_05.webp"
         ],
-        "cores": [
-            "Branco"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG"
-        ],
+        "cores": ["Branco"],
+        "tamanhos": ["P", "M", "G", "GG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "spfc",
         "itensDoKit": [],
-        "tags": [
-            "LANÇAMENTO"
-        ],
+        "tags": ["LANÇAMENTO"],
         "id": "9f672fef-29cd-4187-b631-25076644ee56"
     },
     {
@@ -42,15 +35,8 @@ const dadosProdutos = [
             "/produtos/camisa_spfc_modeloB_04.webp",
             "/produtos/camisa_spfc_modeloB_05.webp"
         ],
-        "cores": [
-            "Listrado"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG"
-        ],
+        "cores": ["Listrado"],
+        "tamanhos": ["P", "M", "G", "GG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
@@ -67,25 +53,14 @@ const dadosProdutos = [
             "/produtos/camisa_spfc_modeloC_04.webp",
             "/produtos/camisa_spfc_modeloC_05.webp"
         ],
-        "cores": [
-            "Preto"
-        ],
-        "tamanhos": [
-            "M",
-            "P",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Preto"],
+        "tamanhos": ["M", "P", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "spfc",
         "itensDoKit": [],
-        "tags": [
-            "EXCLUSIVO KITSPOT",
-            "LANÇAMENTO"
-        ],
+        "tags": ["EXCLUSIVO KITSPOT", "LANÇAMENTO"],
         "id": "fcf49fbc-1269-495c-ac27-b22914ff7f8b"
     },
     {
@@ -99,24 +74,14 @@ const dadosProdutos = [
             "/produtos/camisa_palmeiras_modeloA_04.webp",
             "/produtos/camisa_palmeiras_modeloA_05.webp"
         ],
-        "cores": [
-            "Verde"
-        ],
-        "tamanhos": [
-            "M",
-            "P",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Verde"],
+        "tamanhos": ["M", "P", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "palmeiras",
         "itensDoKit": [],
-        "tags": [
-            "PROMOÇÃO"
-        ],
+        "tags": ["PROMOÇÃO"],
         "id": "ad1dd2e6-48ba-4eb0-b852-7322de3abebb"
     },
     {
@@ -128,16 +93,8 @@ const dadosProdutos = [
             "/produtos/camisa_palmeiras_modeloB_01.webp",
             "/produtos/camisa_palmeiras_modeloB_02.webp"
         ],
-        "cores": [
-            "Branco"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Branco"],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
@@ -151,24 +108,14 @@ const dadosProdutos = [
             "/produtos/camisa_palmeiras_modeloC_01.webp",
             "/produtos/camisa_palmeiras_modeloC_02.webp"
         ],
-        "cores": [
-            "Amarelo"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Amarelo"],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "palmeiras",
         "itensDoKit": [],
-        "tags": [
-            "LANÇAMENTO"
-        ],
+        "tags": ["LANÇAMENTO"],
         "id": "04da5646-7a12-4b6f-b199-2354d9d2778e"
     },
     {
@@ -182,16 +129,8 @@ const dadosProdutos = [
             "/produtos/calcao_spfc_modeloB_03.webp",
             "/produtos/calcao_spfc_modeloB_04.webp"
         ],
-        "cores": [
-            "Preto"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Preto"],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Calção",
         "isKit": false,
         "ligaId": "serie-a",
@@ -208,16 +147,8 @@ const dadosProdutos = [
             "/produtos/calcao_spfc_modeloA_03.webp",
             "/produtos/calcao_spfc_modeloA_04.webp"
         ],
-        "cores": [
-            "Branco"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "cores": ["Branco"],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Calção",
         "isKit": false,
         "ligaId": "serie-a",
@@ -233,13 +164,7 @@ const dadosProdutos = [
             "/produtos/calcao_palmeiras_modeloB_02.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Calção",
         "isKit": false,
         "ligaId": "serie-a",
@@ -253,24 +178,14 @@ const dadosProdutos = [
             "/produtos/calcao_palmeiras_modeloA_01.png",
             "/produtos/calcao_palmeiras_modeloA_02.png"
         ],
-        "cores": [
-            "Verde"
-        ],
-        "tamanhos": [
-            "P",
-            "M",
-            "GG",
-            "G",
-            "XG"
-        ],
+        "cores": ["Verde"],
+        "tamanhos": ["P", "M", "GG", "G", "XG"],
         "tipo": "Calção",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "palmeiras",
         "itensDoKit": [],
-        "tags": [
-            "EXCLUSIVO KITSPOT"
-        ],
+        "tags": ["EXCLUSIVO KITSPOT"],
         "id": "1766f7a5-caa7-44ba-850c-f06e61f5ec7f"
     },
     {
@@ -283,13 +198,7 @@ const dadosProdutos = [
             "/produtos/camisa_palmeiras_modeloC_01.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": true,
         "ligaId": "serie-a",
@@ -299,10 +208,7 @@ const dadosProdutos = [
             "9db6104f-8859-4a51-87d3-dc8c18983800",
             "04da5646-7a12-4b6f-b199-2354d9d2778e"
         ],
-        "tags": [
-            "PROMOÇÃO",
-            "KIT"
-        ],
+        "tags": ["PROMOÇÃO", "KIT"],
         "id": "8b9d3ace-2394-4020-88ae-bddb47e27c87"
     },
     {
@@ -315,13 +221,7 @@ const dadosProdutos = [
             "/produtos/camisa_spfc_modeloC_01.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": true,
         "ligaId": "serie-a",
@@ -331,10 +231,7 @@ const dadosProdutos = [
             "daad98ed-9073-4e86-8bf0-aa041c23a182",
             "fcf49fbc-1269-495c-ac27-b22914ff7f8b"
         ],
-        "tags": [
-            "KIT",
-            "PROMOÇÃO"
-        ],
+        "tags": ["KIT", "PROMOÇÃO"],
         "id": "b1324850-ed8c-4fbb-bafb-3e4b0582b9a5"
     },
     {
@@ -346,13 +243,7 @@ const dadosProdutos = [
             "/produtos/calcao_spfc_modeloA_01.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": true,
         "ligaId": "serie-a",
@@ -361,9 +252,7 @@ const dadosProdutos = [
             "9f672fef-29cd-4187-b631-25076644ee56",
             "2ed64590-3c40-45db-9149-15c0d0484ba8"
         ],
-        "tags": [
-            "KIT"
-        ],
+        "tags": ["KIT"],
         "id": "eb400062-89c7-4bc4-b7d4-f494355638d7"
     },
     {
@@ -378,24 +267,13 @@ const dadosProdutos = [
             "/produtos/calcao_corinthians_modeloA_04.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "G",
-            "M",
-            "GG",
-            "XG",
-            "38",
-            "40",
-            "42"
-        ],
+        "tamanhos": ["P", "G", "M", "GG", "XG", "38", "40", "42"],
         "tipo": "Calção",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "corinthians",
         "itensDoKit": [],
-        "tags": [
-            "PROMOÇÃO"
-        ]
+        "tags": ["PROMOÇÃO"]
     },
     {
         "id": "186778c9-131f-45db-bc6a-261929b30099",
@@ -409,22 +287,13 @@ const dadosProdutos = [
             "/produtos/camisa_corinthians_modeloC_04.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "corinthians",
         "itensDoKit": [],
-        "tags": [
-            "EXCLUSIVO KITSPOT",
-            "LANÇAMENTO"
-        ]
+        "tags": ["EXCLUSIVO KITSPOT", "LANÇAMENTO"]
     },
     {
         "id": "d9e09e36-7f73-44a2-8a56-40afdbd0d192",
@@ -438,13 +307,7 @@ const dadosProdutos = [
             "/produtos/camisa_corinthians_modeloB_04.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
@@ -464,26 +327,22 @@ const dadosProdutos = [
             "/produtos/camisa_corinthians_modeloA_04.webp"
         ],
         "cores": [],
-        "tamanhos": [
-            "P",
-            "M",
-            "G",
-            "GG",
-            "XG"
-        ],
+        "tamanhos": ["P", "M", "G", "GG", "XG"],
         "tipo": "Camisa",
         "isKit": false,
         "ligaId": "serie-a",
         "timeId": "corinthians",
         "itensDoKit": [],
-        "tags": [
-            "PROMOÇÃO"
-        ]
+        "tags": ["PROMOÇÃO"]
     }
 ];
+
 export async function GET(request, { params }) {
-    const id = String(params.id);
-    const produto = dadosProdutos.find(p => String(p.id) === id);
+    // 1. EXTRAI O ID DO PARAMS (AGUARDANDO A PROMISE)
+    const { id } = await params;
+
+    // 2. BUSCA O PRODUTO GARANTINDO QUE SEJA STRING
+    const produto = dadosProdutos.find(p => String(p.id) === String(id));
 
     if (!produto) {
         return NextResponse.json({ error: 'Produto não encontrado' }, { status: 404 });
