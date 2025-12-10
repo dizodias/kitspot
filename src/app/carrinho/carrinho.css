@@ -1,0 +1,124 @@
+/* === CARTÃO 3D ANIMADO === */
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* Baixo z-index para não brigar com o header */
+}
+
+.credit-card-3d {
+  width: 340px;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+  background: linear-gradient(135deg, #001f3f 0%, #0071e3 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.magnetic-strip {
+  background: #1a1a1a;
+  height: 45px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.cvv-strip {
+  background: #fff;
+  color: #333;
+  height: 40px;
+  width: 85%;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.cvv-label {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.chip {
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(135deg, #d4af37 0%, #f2d06b 100%);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.chip::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(0,0,0,0.2); }
+.chip::after { content: ''; position: absolute; left: 35%; top: 0; width: 1px; height: 100%; background: rgba(0,0,0,0.2); }
+
+.card-number {
+  font-size: 1.4rem;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  margin-top: 10px;
+}
+
+.label-title {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.card-holder {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.card-validity {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 450px) {
+  .credit-card-3d { width: 100%; height: 200px; }
+  .card-number { font-size: 1.1rem; }
+}

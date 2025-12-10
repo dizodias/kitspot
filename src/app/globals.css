@@ -1,0 +1,361 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* =========================================
+   1. CONFIGURAÇÕES GLOBAIS (RESET)
+   ========================================= */
+:root {
+  --ks-header: #ffffff;
+  --ks-bg: #ffffff;       /* BRANCO ABSOLUTO */
+  --ks-accent: #082947;
+  --ks-text: #1d1d1f;
+  --ks-gray-bg: #f5f5f7;
+  --ks-gray-text: #86868b;
+  --ks-white: #ffffff;
+  --ks-border: #d2d2d7;
+}
+
+html, body {
+  background-color: #ffffff !important; /* Força bruta no HTML e Body */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--ks-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   2. HEADER & NAVBAR
+   ========================================= */
+.bg-kitspot {
+  background-color: rgba(255, 255, 255, 0.98) !important; /* Quase opaco */
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ks-border);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 9999; /* Z-index MÁXIMO para ficar acima de tudo */
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.header-left, .header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.header-right {
+  justify-content: flex-end;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+/* Botão de Times */
+.times-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  color: var(--ks-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+.times-btn:hover {
+  background-color: var(--ks-gray-bg);
+}
+
+/* Links do Menu (Direita) */
+.nav-link-custom {
+  color: var(--ks-text) !important;
+  font-weight: 400;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link-custom:hover {
+  color: var(--ks-accent) !important;
+}
+
+/* Barra de Busca */
+.header-bottom {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  background-color: var(--ks-gray-bg);
+  border: 1px solid transparent;
+  padding: 10px 15px;
+  padding-right: 50px;
+  border-radius: 12px;
+  width: 100%;
+  color: var(--ks-text);
+  height: 40px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.search-bar:focus {
+  background-color: #fff;
+  border-color: var(--ks-accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+  outline: none;
+}
+
+/* =========================================
+   3. MENU OVERLAY (SELEÇÃO DE TIMES)
+   ========================================= */
+.team-menu-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 2000;
+  padding: 40px 0;
+  overflow-y: auto;
+}
+
+.liga-section { margin-bottom: 30px; }
+.liga-title {
+  font-size: 0.75rem;
+  color: var(--ks-gray-text);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.team-grid { display: flex; flex-wrap: wrap; gap: 15px; }
+
+.team-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.team-item:hover {
+  background-color: var(--ks-gray-bg);
+  transform: scale(1.02);
+}
+.team-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+.team-item span {
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--ks-text);
+  font-weight: 500;
+}
+
+/* =========================================
+   4. PRODUTOS E CARDS
+   ========================================= */
+.team-header {
+  background: var(--ks-gray-bg);
+  padding: 40px;
+  border-radius: 18px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.card-produto {
+  background: var(--ks-white);
+  border-radius: 18px;
+  padding: 20px;
+  height: 100%;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+.card-produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Kits (Mashup de imagens) */
+.kit-mashup-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.kit-mashup-item {
+  height: 80%;
+  width: 50%;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+.kit-mashup-item:nth-child(1) { transform: translateX(10px) scale(0.9); z-index: 1; }
+.kit-mashup-item:nth-child(2) { transform: translateX(-10px) scale(1.1); z-index: 2; }
+.card-produto:hover .kit-mashup-item:nth-child(1) { transform: translateX(0) scale(0.9); }
+.card-produto:hover .kit-mashup-item:nth-child(2) { transform: translateX(0) scale(1.1); }
+
+/* =========================================
+   5. TABELA DO BRASILEIRÃO
+   ========================================= */
+.tabela-container {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  border: 1px solid #eee;
+}
+.table-custom thead {
+  background-color: var(--ks-gray-bg);
+  color: var(--ks-text);
+}
+.table-custom th {
+  padding: 18px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #ddd;
+}
+.posicao-bolinha {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: var(--ks-gray-bg);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ks-text);
+}
+
+/* =========================================
+   6. SIDEBAR: PRÓXIMOS JOGOS
+   ========================================= */
+.game-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-left: 3px solid var(--ks-accent);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+.game-data { font-size: 0.7rem; color: var(--ks-gray-text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.game-vs { font-weight: 600; color: var(--ks-text); margin: 4px 0; font-size: 0.95rem; }
+.game-local { font-size: 0.8rem; color: var(--ks-gray-text); }
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.footer-apple {
+  background-color: var(--ks-gray-bg);
+  color: var(--ks-gray-text);
+  font-size: 12px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  border-top: 1px solid var(--ks-border);
+}
+
+.footer-content-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-column h5 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ks-text);
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  display: block;
+  color: #424245;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--ks-accent);
+  text-decoration: underline;
+}
+
+/* Trust Badges Minimalistas */
+.trust-badges-container {
+  border-bottom: 1px solid var(--ks-border);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ks-text);
+}
+.trust-text h6 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ks-text);
+}
+.trust-text p {
+  font-size: 11px;
+  color: var(--ks-gray-text);
+  margin: 0;
+}
+
+.footer-bottom-apple {
+  border-top: 1px solid var(--ks-border);
+  margin-top: 20px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
