@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <FilterProvider> {/* Envolvendo com o contexto de filtro */}
             
-            <Navbar /> {/* A Navbar agora mora aqui */}
+            <Navbar />
             
             <div id="app-root">
                 {children}

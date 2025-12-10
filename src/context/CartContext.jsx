@@ -7,28 +7,38 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [carrinho, setCarrinho] = useState([]);
+  const [inicializado, setInicializado] = useState(false);
 
   useEffect(() => {
-    const dadosSalvos = localStorage.getItem('kitspot-carrinho');
-    if (dadosSalvos) {
-      setCarrinho(JSON.parse(dadosSalvos));
+    if (typeof window !== 'undefined') {
+        const dadosSalvos = localStorage.getItem('kitspot-carrinho');
+        if (dadosSalvos) {
+          try {
+            setCarrinho(JSON.parse(dadosSalvos));
+          } catch (error) {
+            console.error("Erro ao ler carrinho:", error);
+          }
+        }
+        setInicializado(true);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('kitspot-carrinho', JSON.stringify(carrinho));
-  }, [carrinho]);
+    if (inicializado) {
+        localStorage.setItem('kitspot-carrinho', JSON.stringify(carrinho));
+    }
+  }, [carrinho, inicializado]);
 
   const adicionarAoCarrinho = (produto, tamanho, cor) => {
     const itemParaCarrinho = {
         ...produto,
-        cartId: uuidv4(), // ID único para este item no carrinho
+        cartId: uuidv4(),
         tamanhoEscolhido: tamanho,
         corEscolhida: cor
     };
     
-    setCarrinho([...carrinho, itemParaCarrinho]);
-    alert("Produto adicionado ao carrinho!");
+    setCarrinho((prevCarrinho) => [...prevCarrinho, itemParaCarrinho]);
+    
   };
 
   const removerDoCarrinho = (cartId) => {
@@ -38,7 +48,9 @@ export function CartProvider({ children }) {
 
   const limparCarrinho = () => {
     setCarrinho([]);
-    localStorage.removeItem('kitspot-carrinho');
+    if (typeof window !== 'undefined') {
+        localStorage.removeItem('kitspot-carrinho');
+    }
   };
 
   const total = carrinho.reduce((acc, item) => acc + Number(item.preco), 0);
